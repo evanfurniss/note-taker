@@ -25,4 +25,8 @@ app.post("/api/notes", function (req, res){
     notes.push(newNote);
 
     res.json(newNote);
-})
+});
+
+app.listen(PORT, function() {
+    console.log("App listening on PORT " + PORT);
+  });
