@@ -12,3 +12,13 @@ var notes = [];
 app.get("/", (req, res) => {
     res.sendFile(path.join(__dirname, "./"))
 })
+
+app.post("/api/notes", function (req, res){
+    var newNote = req.body.textarea;
+
+    newNote.routeName = newNote.title.replace(/\s+/g, "").toLowerCase();
+
+    notes.push(newNote);
+
+    res.json(newNote);
+})
