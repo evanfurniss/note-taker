@@ -6,6 +6,7 @@ var PORT = process.env.PORT || 4200;
 // Set up recieving and sending note data, switches from json to note data, and notes arr to store notes
 app.use(express.urlencoded({ extended: true}));
 app.use(express.json());
+app.use(express.static('public'))
 
 //=====================================================================================================
 // When called, retrieves relevant data for the call

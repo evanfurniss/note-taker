@@ -6,8 +6,8 @@ module.exports = function(app) {
     });
     app.post("/api/notes", (req, res) => {
         var newNote = req.body;
-        newNote.routeName = newNote.title.replace(/\s+/g, "").toLowerCase();
         notes.push(newNote);
+        console.log(newNote);
         res.json(newNote);
     });
     app.delete("/api/notes"), function(req, res){
