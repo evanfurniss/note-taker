@@ -7,7 +7,7 @@ const writeFileAsync = util.promisify(fs.writeFile);
 module.exports = function(app) {
     app.get("/api/notes", function(req, res) {
         readFileAsync(__dirname + "/db/db.json", "utf8", function(data){
-            notes = [].concat(JSON.parse(data))
+            var notes = [].concat(JSON.parse(data))
             res.json(notes);
         })
     });
@@ -15,7 +15,7 @@ module.exports = function(app) {
     app.post("/api/notes", (req, res) => {
         var newNote = req.body;
         readFileAsync(__dirname + "/db/db.json", "utf8", function (notes) {
-            notes = [].concat(JSON.parse(notes));
+            var notes = [].concat(JSON.parse(notes));
             newNote.id = notes.length + 1;
             notes.push(newNote);
             console.log(newNote);
