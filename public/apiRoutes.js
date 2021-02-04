@@ -7,11 +7,9 @@ const writeFileAsync = util.promisify(fs.writeFile);
 
 module.exports = function(app) {
     app.get("/api/notes", function(req, res) {
-        console.log("get route hit");
         readFileAsync(path.join(__dirname + "/db/db.json"), "utf8") 
         .then(function(data){
             notes=[].concat(JSON.parse(data))
-            console.log(data);
             return res.json(notes);
         })
     });
@@ -22,7 +20,6 @@ module.exports = function(app) {
         .then(function (data) {
             notes = [].concat(JSON.parse(data));
             newNote.id = notes.length + 1;
-            // console.log(notes);
             notes.push(newNote);
             return notes
         }).then(function(data){
@@ -32,7 +29,7 @@ module.exports = function(app) {
     })
 
     app.delete("/api/notes/:id"), function(req, res){
-        var noteToDelete = req.params.id;
+        var noteToDelete = parseInt(req.params.id);
         readFileAsync(path.join(__dirname + "/db/db.json"), "utf8")
         .then(function(data){
             notes = [].concat(JSON.parse(data));
@@ -41,7 +38,7 @@ module.exports = function(app) {
             return newNotes
         }).then(function (notes){
             writeFileAsync(path.join(__dirname + "/db/db.json"), JSON.stringify(notes))
-            res.send("saved");
+            res.send(notes);
         })
     };
 }
