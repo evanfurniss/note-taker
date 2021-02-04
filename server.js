@@ -9,8 +9,8 @@ app.use(express.json());
 
 //=====================================================================================================
 // When called, retrieves relevant data for the call
-require("./public/routes/htmlRoutes"(app));
-require("./public/routes/apiRoutes"(app));
+require("./public/routes/htmlRoutes")(app);
+require("./public/routes/apiRoutes")(app);
 //=====================================================================================================
 // Listener that takes ajax calls and retrieves and sends back data
 app.listen(PORT, function() {
