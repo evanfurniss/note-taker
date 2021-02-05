@@ -28,7 +28,7 @@ module.exports = function(app) {
         })
     })
 
-    app.delete("/api/notes/:id"), function(req, res){
+    app.delete("/api/notes/:id", function(req, res){
         var noteToDelete = parseInt(req.params.id);
         readFileAsync(path.join(__dirname + "/db/db.json"), "utf8")
         .then(function(data){
@@ -36,9 +36,9 @@ module.exports = function(app) {
             const newNotes = [];
             notes.forEach((note) => noteToDelete !== note.id ? newNotes.push(note) : console.log("sorry chump"));
             return newNotes
-        }).then(function (notes){
+        }).then(function(notes){
             writeFileAsync(path.join(__dirname + "/db/db.json"), JSON.stringify(notes))
             res.send(notes);
         })
-    };
+    });
 }
