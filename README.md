@@ -35,3 +35,9 @@ If you think you can add functionality to this project, see a bug, or have styli
 ## Demo
 
 Check out the file demo video here: https://drive.google.com/file/d/17v6RSv4GhgNZeG5Rq1TmqQ8uX4_HCeVu/view
+
+![Start up page.](./public/pics/start.png)
+
+![Created note example.](./public/pics/ex.png)
+
+![Note appears in sidebar](./public/pics/end.png)
