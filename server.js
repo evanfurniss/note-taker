@@ -18,8 +18,8 @@ app.use(express.static('public'))
 //=====================================================================================================
 // When called, retrieves relevant data for the call
 
-require("./public/apiRoutes")(app);
-require("./public/htmlRoutes")(app);
+require("./backend/apiRoutes")(app);
+require("./backend/htmlRoutes")(app);
 
 //=====================================================================================================
 // Listener that takes ajax calls and retrieves and sends back data
